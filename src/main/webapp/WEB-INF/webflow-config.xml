@@ -17,6 +17,6 @@
 		flow-registry="checkoutFlowRegistry" />
 	<flow:flow-registry id="checkoutFlowRegistry">
 		<flow:flow-location id="checkoutFlow"
-			path="/WEB-INF/checkout-flow.xml" />
+			path="/WEB-INF/checkout.xml" />
 	</flow:flow-registry>
 </beans>

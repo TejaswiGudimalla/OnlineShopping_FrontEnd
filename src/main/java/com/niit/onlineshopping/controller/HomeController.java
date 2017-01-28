@@ -71,9 +71,9 @@ public class HomeController {
 
 	@RequestMapping("/SignUp")
 	public ModelAndView showRegisterpage() {
-		ModelAndView mv = new ModelAndView("home");
+		ModelAndView mv = new ModelAndView("Home");
 		mv.addObject("user",user);
-		mv.addObject("showregistionpage", "true");
+		mv.addObject("showsignup", "true");
 		return mv;
 	}
 	

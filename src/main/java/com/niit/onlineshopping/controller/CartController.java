@@ -59,7 +59,7 @@ public class CartController {
 	   cart2.setStatus("C");
 	  /* cart2.setUserid((int) session.getAttribute("userid"));*/
 	   cartDAO.save(cart2);
-	            return "redirect:Cart";
+	            return "redirect:/Cart";
 	  }else{
 	   Cart cart1 = cartDAO.getproductid(productid);
 	   Product product1 = productDAO.get(productid);

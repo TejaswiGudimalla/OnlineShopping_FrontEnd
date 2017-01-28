@@ -98,7 +98,7 @@ public class UserController {
 	{
         user.setRole("ROLE_USER");
        user.setEnabled(true);
-        if(userDAO.save(user)==true){
+        if(userDAO.saveOrUpdate(user)==true){
         	attributes.addFlashAttribute("registered", "You Have Successfully Registered with us Thank You...");
         }
         else{
