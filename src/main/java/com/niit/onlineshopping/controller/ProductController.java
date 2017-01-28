@@ -60,7 +60,8 @@ public class ProductController {
         }
 		return "redirect:/Product";
 	}
-@RequestMapping(value ="Product" )
+	
+    @RequestMapping(value ="Product" )
 	public ModelAndView ProductPage(@ModelAttribute("product") Product product,BindingResult result) {
 		ModelAndView mv= new ModelAndView("/Admin");
 		//mv.addObject("product", new Product());

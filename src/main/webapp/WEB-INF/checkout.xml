@@ -13,7 +13,7 @@
       
       <action-state id="payment">
       <evaluate expression="checkoutHandler.paymentMethod(frontCart)" />
-      <transition on="cOnDelivery" to="tqpage" />
+      <transition on="cashOnDelivery" to="tqpage" />
       <transition on="card" to="cardpage"/>
       </action-state>
       

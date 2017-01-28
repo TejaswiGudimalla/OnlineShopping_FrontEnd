@@ -35,7 +35,7 @@ public class CategoryController {
 	
 	return "redirect:/Category";
 		}
-@RequestMapping(value ="/Category" )
+@RequestMapping(value ="Category" )
 	public ModelAndView CategoryPage(@ModelAttribute("category") Category category,BindingResult result) {
 		ModelAndView mv= new ModelAndView("/Admin");
 		//mv.addObject("category", new Category());

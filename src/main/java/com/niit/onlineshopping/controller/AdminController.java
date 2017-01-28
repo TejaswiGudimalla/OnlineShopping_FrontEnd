@@ -80,7 +80,7 @@ public class AdminController {
 	@RequestMapping(value="/loginError")
 	public String errorpage(RedirectAttributes attributes){
 		attributes.addFlashAttribute("error", "The Username or Password you entered is incorrect please try again");
-		return "redirect:/login";
+		return "redirect:/Login";
 	}
 
 }

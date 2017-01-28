@@ -84,7 +84,7 @@ public class HomeController {
 	    	return "ShowProduct";
 	    }
 	@RequestMapping(value="navproducts/{id}")
-	public String navproduct(Model m,@PathVariable("id") int id ){
+	public String navproduct(Model m, @PathVariable("id") int id,RedirectAttributes attributes){
 		m.addAttribute("Clickedcatproduct", "true");
 		m.addAttribute("navproducts", productDAO.navproduct(id));
 		return "CartProducts";

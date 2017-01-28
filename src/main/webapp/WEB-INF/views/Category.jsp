@@ -32,7 +32,7 @@
 	 			</c:when></c:choose>
 	 				<form:input class="form-control" path="name" placeholder="Enter the Name" required="required"/>
 					<form:errors path="name"></form:errors>
-					<form:input class="form-control input_text" path="description" placeholder="Address" required="required"/>
+					<form:input class="form-control input_text" path="description" placeholder="Description" required="required"/>
 				 <form:errors path="description"></form:errors>
 				<!-- <input type="submit" class="btn-btn-primary" value="Save" />-->
 						</div><!-- model body -->

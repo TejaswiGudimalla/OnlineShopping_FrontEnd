@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.onlineshopping.dao.CartDAO;
-import com.niit.onlineshopping.dao.CategoryDAO;
 import com.niit.onlineshopping.dao.ProductDAO;
 import com.niit.onlineshopping.model.Cart;
 import com.niit.onlineshopping.model.Product;
@@ -26,8 +25,6 @@ public class CartController {
 	@Autowired
 	 private CartDAO cartDAO;
 	@Autowired
-	 private CategoryDAO categoryDAO;
-	 @Autowired
 	 private ProductDAO productDAO;
 	 
 	 public static final Logger log=LoggerFactory.getLogger(CartController.class);
@@ -48,7 +45,7 @@ public class CartController {
 	 
 	  log.info("Cart operation start");
 	  double p;
-	  if(cartDAO.getproductid(productid)==null){
+	  if(cartDAO.getProduct(productid)==null){
 	   Cart cart2= new Cart(); 
 	   Product product = productDAO.get(productid);
 	   cart2.setProductid(product.getId());
@@ -61,7 +58,7 @@ public class CartController {
 	   cartDAO.save(cart2);
 	            return "redirect:/Cart";
 	  }else{
-	   Cart cart1 = cartDAO.getproductid(productid);
+	   Cart cart1 = cartDAO.getProduct(productid);
 	   Product product1 = productDAO.get(productid);
 	   q=cart1.getQuantity();
 	   cart1.setStatus("C");
@@ -106,28 +103,30 @@ public class CartController {
 		 
 	 @RequestMapping(value="/Cart")
 	 public ModelAndView cartpage(@ModelAttribute("cart") Cart cart,HttpSession session){
-	  ModelAndView mv= new ModelAndView("CartPage");
+	  ModelAndView mv= new ModelAndView("Cart");
 	  if(cartDAO.list()==null){
 	   mv.addObject("emptycart","Sorry your shopping cart is empty");
-	  }else{
+	  }
+	  else{
 	  mv.addObject("CartList", cartDAO.list());
 	  //mv.addObject("cartprice", cartDAO.CartPrice((Integer) session.getAttribute("userId")));
 	  }
 	  mv.addObject("UserClickedCart","true");
 	  return mv;
 	 }
+	 
 	 @RequestMapping("placeorder")
 	 public String placeorder(Model model)
 	 {
 	  model.addAttribute("IfPaymentClicked", "true");
 	  model.addAttribute("HideOthers","true");
-	  return "Payment";
+	  return "redirect:/Payment";
 	 }
 
 	 @RequestMapping("pay")
 	 public String payment(HttpSession session) {
 	  cartDAO.pay((Integer) session.getAttribute("userid"));
-	  return "home";
+	  return "redirect:/Home";
 	 }
 	 /*@RequestMapping(value="navproducts/{id}")
 	    public String navproduct(Model m,@PathVariable("id") int id ){

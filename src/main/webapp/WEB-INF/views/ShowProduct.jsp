@@ -9,34 +9,37 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Product</title>
 <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-  
-  footer{
-  margin-top:50px;
-  }
-body {
-width:100%;
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+footer {
+	margin-top: 50px;
 }
-  
-  </style>
+
+body {
+	width: 100%;
+}
+</style>
 </head>
 <body>
- 
+
 
 
 	<div class="container">
 		<c:forEach items="${IndividualProduct}" var="product">
-		<h2><c:out value="${product.name }"/></h2>
+			<h2>
+				<c:out value="${product.name }" />
+			</h2>
 			<div class="col-xs-6 w3-animate-left">
 				<div class="img">
-					<img height="100px" width="100px" alt="${product.id }"src="<c:url value="/resources/images/${product.id }.jpg"></c:url>">
-					<div class="desc">
-									
-					</div>
+					<img height="100px" width="100px" alt="${product.id }"
+						src="<c:url value="/resources/images/${product.id }.jpg"></c:url>">
+					<div class="desc"></div>
 				</div>
 			</div>
 
@@ -45,18 +48,20 @@ width:100%;
 					<div class="desc">
 						<p>
 						<div class="form-group">
-							<input type="text" class="form-control" value="${product.name}" readonly="readonly">
-						</div>
-						
-						<div class="form-group">
-							 <input type="text" class="form-control" value="Rs. ${product.price}" readonly="readonly"><br>
-							 <input type="submit" class="btn btn-primary" value="Add To Cart" />
-						</div>
-						</div>
-						</div>
-						</div>
-						</c:forEach>
+							<input type="text" class="form-control" value="${product.name}"
+								readonly="readonly">
 						</div>
 
- <//body>
+						<div class="form-group">
+							<input type="text" class="form-control"
+								value="Rs. ${product.price}" readonly="readonly"><br>
+							<input type="submit" class="btn btn-primary" value="Add To Cart" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
+
+</body>
 </html>

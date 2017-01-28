@@ -36,9 +36,7 @@ body {
 <body style="background-color: #CCCCCC">
 
 
-	<div class="text-center">
-		
-	</div>
+	<div class="text-center"></div>
 
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
@@ -56,8 +54,6 @@ body {
 								property="principal.username" /></a></li>
 				</ul>
 			</sec:authorize>
-
-			</ul>
 		</div>
 	</nav>
 	<div id="cart">
@@ -103,7 +99,7 @@ body {
 								</div>
 							</div>
 							<hr>
-								<c:if test="${!empty CartList}">
+							<c:if test="${!empty CartList}">
 								<c:forEach items="${CartList}" var="cart">
 									<div class="row">
 										<div class="col-xs-5">
@@ -132,12 +128,12 @@ body {
 														class="btn btn-default btn-sm btn-block">Update
 														cart</button>
 												</div>
-
 											</form>
 										</div>
+										
 										<div class="col-xs-1" style="padding-top: 22px">
-											<a href="delete/${cart.id}" class="form-control input-sm"><span
-												class="glyphicon glyphicon-trash"> </span></a>
+											<a href="delete/${cart.id}" class="form-control input-sm">
+											<span class="glyphicon glyphicon-trash"> </span></a>
 										</div>
 									</div>
 									<hr>
@@ -147,17 +143,16 @@ body {
 						<div class="panel-footer">
 							<div class="row text-center">
 								<div class="col-xs-3">
-									<a href="home" class="btn btn-primary btn-sm btn-block">Continue
-										Shopping</a>
+								<a href="Home" class="btn btn-success btn-block">
+												Continue Shopping</a>
 								</div>
 								<c:if test="${empty EmptyCart}">
 									<div class="col-xs-6">
 										<h4 class="text-right">Total : Rs ${cartprice}</h4>
 									</div>
 									<form action="placeorder">
-
 										<div class="col-xs-3">
-											<a href=checkoutFlow class="btn btn-success btn-block">
+											<a href=checkout class="btn btn-success btn-block">
 												Checkout</a>
 										</div>
 
@@ -171,6 +166,11 @@ body {
 		</div>
 	</div>
 	<!--  -->
+	<%-- <c:choose>
+			<c:when test="${IfPaymentClicked}">
+				<c:import url="/WEB-INF/views/Payment.jsp"></c:import>
+			</c:when>
+		</c:choose> --%>
 
 </body>
 </html>
