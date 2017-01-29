@@ -42,7 +42,7 @@ public class ProductController {
 	private Path path;
 
 	@RequestMapping(value="editproduct")
-	public String editproduct(@ModelAttribute("product") Product product,HttpServletRequest request,Model m){
+	public String editProduct(@ModelAttribute("product") Product product,HttpServletRequest request,Model m){
 		productDAO.save(product);
 		MultipartFile file=product.getImage();
 		String rootDirectory = request.getSession().getServletContext().getRealPath("/");

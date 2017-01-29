@@ -53,7 +53,7 @@ width:100%;
      <ul class="nav navbar-nav navbar-right" style="margin-bottom:-2px;">    
       <li><a href="HOME">HOME</a></li>
        <sec:authorize access="!isAuthenticated()">
-      <li><a href="Registration">REGISTER</a></li>
+      <li><a href="SignUp">REGISTER</a></li>
       <li><a href="Login">LOGIN</a></li>
       </sec:authorize>
 	  <li><a href="CONTACTUS">CONTACT US</a></li>
@@ -86,7 +86,7 @@ width:100%;
         <input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}" />
       <input type="radio" name="method" value="cashOnDelivery">  Cash On Delivery<br><br>
      <input type="radio" name="method" value="Card">  Banking <br><br>
-         <button class="btn btn-success btn-sm btn-block" type="submit">proceed</button>  
+         <button class="btn btn-success btn-sm btn-block" type="submit">Proceed</button>  
         </form>
         </div>
         </div>

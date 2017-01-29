@@ -1,3 +1,10 @@
 com\niit\onlineshopping\controller\AdminController.class
+com\niit\onlineshopping\controller\CategoryController.class
+com\niit\onlineshopping\controller\ProductController.class
+com\niit\onlineshopping\controller\CartController.class
+com\niit\onlineshopping\controller\MultiPartController.class
 com\niit\onlineshopping\controller\HomeController.class
 com\niit\onlineshopping\controller\SupplierController.class
+com\niit\onlineshopping\handler\CheckoutHandler.class
+com\niit\onlineshopping\controller\UserController.class
+com\niit\onlineshopping\model\FrontCart.class

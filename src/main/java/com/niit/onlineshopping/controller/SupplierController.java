@@ -29,7 +29,7 @@ public class SupplierController {
 	
 	
 	@RequestMapping(value="editsupplier")
-	public String editsupplier(@Valid @ModelAttribute("supplier") Supplier supplier,  Model m,RedirectAttributes attributes,BindingResult result){
+	public String editsupplierpage(@Valid @ModelAttribute("supplier") Supplier supplier,  Model m,RedirectAttributes attributes,BindingResult result){
 		if(result.hasErrors()){
 			return "editsupplier";
 		}else{
