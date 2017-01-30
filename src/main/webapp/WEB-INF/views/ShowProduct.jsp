@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Product</title>
-<meta charset="utf-8">
+<!-- <meta charset="utf-8"> -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -27,8 +27,6 @@ body {
 </style>
 </head>
 <body>
-
-
 
 	<div class="container">
 		<c:forEach items="${IndividualProduct}" var="product">
@@ -55,7 +53,9 @@ body {
 						<div class="form-group">
 							<input type="text" class="form-control"
 								value="Rs. ${product.price}" readonly="readonly"><br>
+								<form action="${action}" commandName="cart">
 							<input type="submit" class="btn btn-primary" value="Add To Cart" />
+							</form>
 						</div>
 					</div>
 				</div>

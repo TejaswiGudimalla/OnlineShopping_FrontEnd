@@ -26,17 +26,15 @@ public class CartController {
 	@Autowired
 	private CartDAO cartDAO;
 	@Autowired
-	private CategoryDAO categoryDAO;
-	@Autowired
 	private ProductDAO productDAO;
 
 	public static final Logger log = LoggerFactory.getLogger(CartController.class);
 
 	int q;
 
-	@RequestMapping(value = { "addtocart/{id}", "navproducts/addtocart/{id}" })
+	@RequestMapping(value = { "addtocart/{id}", "navproducts/addtocart/{id}", "addtocart/{userid}/{id}"})
 	public String addTOCart(@ModelAttribute("cart") Cart cart, BindingResult result,
-			@PathVariable("id") int productid) {
+			@PathVariable("id") int productid, HttpSession session) {
 
 		log.info("Cart operation start");
 		double p;
@@ -49,7 +47,7 @@ public class CartController {
 			cart2.setQuantity(1);
 			q = cart2.getQuantity();
 			cart2.setStatus("C");
-		    //  cart2.setUserid((int) session.getAttribute("userid"));
+		    cart2.setUserid((Integer) session.getAttribute("userid"));
 			cartDAO.save(cart2);
 			return "redirect:/Cart";
 		} else {
@@ -57,7 +55,7 @@ public class CartController {
 			Product product1 = productDAO.get(productid);
 			q = cart1.getQuantity();
 			cart1.setStatus("C");
-			//cart1.setUserid((int) session.getAttribute("userid"));
+			cart1.setUserid((Integer) session.getAttribute("userid"));
 			p = product1.getPrice();
 			q += 1;
 			p = q * p;

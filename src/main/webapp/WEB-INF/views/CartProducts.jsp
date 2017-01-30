@@ -1,4 +1,4 @@
-%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -31,7 +31,8 @@
 	src="<c:url value="/resources/images/${product.id }.jpg"></c:url>"></a>
   <div class="desc">
          Product Id : <c:out value="${product.id}" /><br>
-         Product Name : <c:out value="${product.name }"/>
+         Product Name : <c:out value="${product.name }"/><br>
+         Price:<c:out value="${product.price}"></c:out>
    <c:url var="action" value="addtocart/${product.id}"></c:url>
    <form action="${action}" commandName="cart">
    <input type="submit" class="btn btn-primary" value="Add To Cart" />

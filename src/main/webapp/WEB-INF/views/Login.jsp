@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta name = "viewport" content = "width = device-width, initial-scale = 1">
-<title>Home Page</title>
+<title>Login</title>
 <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>">
 <link rel="stylesheet" href="<c:url value="/resources/css/Login.css"/>">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

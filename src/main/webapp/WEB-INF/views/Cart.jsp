@@ -29,9 +29,6 @@ body {
 	position: relative;
 }
 </style>
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body style="background-color: #CCCCCC">
 
@@ -147,7 +144,7 @@ body {
 						<div class="panel-footer">
 							<div class="row text-center">
 								<div class="col-xs-3">
-									<a href="Home" class="btn btn-primary btn-sm btn-block">Continue
+									<a href="" class="btn btn-success btn-block">Continue
 										Shopping</a>
 								</div>
 								<c:if test="${empty EmptyCart}">
