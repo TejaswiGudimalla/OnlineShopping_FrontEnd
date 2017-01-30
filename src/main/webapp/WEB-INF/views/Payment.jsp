@@ -85,7 +85,7 @@ width:100%;
         <input type="hidden" name="_eventId" value="method">
         <input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}" />
       <input type="radio" name="method" value="cashOnDelivery">  Cash On Delivery<br><br>
-     <input type="radio" name="method" value="Card">  Banking <br><br>
+     <input type="radio" name="method" value="card">  Banking <br><br>
          <button class="btn btn-success btn-sm btn-block" type="submit">Proceed</button>  
         </form>
         </div>

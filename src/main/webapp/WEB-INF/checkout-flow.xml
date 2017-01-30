@@ -26,7 +26,7 @@
 		<transition on="true" to="thankyou" />
 		<transition on="false" to="paymentpage" />
 	</action-state>
-
+	
 	<view-state id="thankyou" view="views/thankyou.jsp"></view-state>
 
 </flow>

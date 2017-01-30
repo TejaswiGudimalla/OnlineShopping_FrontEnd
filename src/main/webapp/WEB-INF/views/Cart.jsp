@@ -158,7 +158,7 @@ body {
 									<%-- <form action="placeorder"> --%>
 										<div class="col-xs-3">
 										<form action="placeorder">
-											<a href=checkout-flow class="btn btn-success btn-block">
+											<a href=checkoutFlow class="btn btn-success btn-block">
 												Checkout</a>
 												</form>
 										</div>

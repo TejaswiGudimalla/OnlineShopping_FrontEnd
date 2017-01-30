@@ -6,18 +6,18 @@ import com.niit.onlineshopping.model.FrontCart;
 
 @Service
 public class CheckoutHandler {
-public String cardPayment(FrontCart cart)
+public String cardPayment(FrontCart frontCart)
 	
 	{	
 		return "true";
 		
 	}
 	
-	 public String paymentMethod(FrontCart cart)
+	 public String paymentMethod(FrontCart frontCart)
 	 
 	 {
 		System.out.println("method");
-		String method=cart.getMethod();
+		String method=frontCart.getMethod();
 		System.out.println(method);
 		if(method.equals("cashOnDelivery"))
 		
@@ -30,7 +30,7 @@ public String cardPayment(FrontCart cart)
 		
 		{
 			
-			return "Card";
+			return "card";
 		}
 	
 	 }
