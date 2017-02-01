@@ -96,7 +96,7 @@ public class CartController {
 		cart.setQuantity(q);
 		cart.setPrice(q * p.getPrice());
 		cartDAO.saveorupdate(cart);
-		session.setAttribute("cartsize", cartDAO.cartsize((Integer) session.getAttribute("userId")));
+		session.setAttribute("cartsize", cartDAO.cartsize((Integer) session.getAttribute("userid")));
 		return "redirect:/Cart";
 	}
 

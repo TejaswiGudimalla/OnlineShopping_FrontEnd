@@ -5,58 +5,98 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Cart</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+</head>
 <style>
-body {
-	background: #DCDDDF
-		url(http://cssdeck.com/uploads/media/items/7/7AF2Qzt.png);
-	color: #000;
-	font: 14px Arial;
-	margin: 0 auto;
-	padding: 0;
+
+#srch-term {
 	position: relative;
+	width: 650px;
+	height: 35px;
+}
+
+.input-group-btn {
+	height: 35px;
+}
+
+.navbar{
+background-color:lightgreen;
+margin-bottom: 0;
+border-radius: 0;
 }
 </style>
-</head>
-<body style="background-color: #CCCCCC">
 
+<body>
+	<nav class="navbar navbar-inverse" class="navbar-fixed-top" role="active">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="">Online Shopping</a>
+			<ul class="nav navbar-nav" class="navbar-brand">
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="${CategoryList}">Categories <span
+						class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li class="navbar-nav">
+						<li class="navbar-nav"><c:forEach items="${CategoryList}"
+								var="category">
 
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<sec:authorize access="!isAuthenticated()">
-			</sec:authorize>
-			<sec:authorize access="isAuthenticated()">
-				<ul class="nav navbar-nav navbar-right" style="margin-bottom: 0px;">
-					<li><a href="Cart"><p>
-								CART <span class="glyphicon glyphicon-shopping-cart"></span>
-							</p></a></li>
-					<li><a href="<c:url value="/perform_logout" />"><p>
-								LOGOUT<span class="glyphicon glyphicon-log-out"></span>
-							</p></a></li>
-					<li><a href="" style="text-transform: capitalize;">welcome
-							<sec:authentication property="principal.username" />
-					</a></li>
-				</ul>
-			</sec:authorize>
-
+								<a href="navproducts/${category.id}"><c:out
+										value="${category.name}" /></a>
+							</c:forEach></li>
+					</ul></li>
 			</ul>
 		</div>
+
+		<form class="navbar-form navbar-left" role="search">
+			<div class="form-group">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Search"
+						name="srch-term" id="srch-term">
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="submit">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<div class="navbar-nav navbar-right">
+			<sec:authorize access="isAuthenticated()">
+				<li><a class="navbar-brand" href="Cart"><span
+						class="glyphicon glyphicon-shopping-cart" class="btn btn-info"></span>Cart</a></li>
+				<li><a class="navbar-brand"
+					href="<c:url value="/perform_logout"/>" class="btn btn-info"><span
+						class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+			</sec:authorize>
+			<sec:authorize access="!isAuthenticated()">
+				<li><a class="navbar-brand" href="Login"><span
+						class="glyphicon glyphicon-log-in" class="btn btn-info"></span>Login</a></li>
+				<li><a class="navbar-brand" href="SignUp" class="btn btn-info"><span
+						class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+			</sec:authorize>
+		</div>
+	</div>
 	</nav>
 
 	<div id="cart">
-		<div class="container">
+		<div class="container" style="padding-top:25px;">
 			<div class="row">
 				<div class="col-xs-1"></div>
 				<div class="col-xs-10">

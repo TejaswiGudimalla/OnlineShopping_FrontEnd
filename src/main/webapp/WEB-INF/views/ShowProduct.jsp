@@ -1,34 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Product</title>
-<!-- <meta charset="utf-8"> -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
-footer {
-	margin-top: 50px;
-}
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-body {
-	width: 100%;
-}
-</style>
 </head>
 <body>
 
-	<div class="container">
+<h4 align="center" style="text-color: lightgreen;"><a href="">Online Shopping</a></h4>
+
+<%-- <jsp:include page="header.jsp" /> --%>
+
+	<div class="container" style="padding-top: 25px">
 		<c:forEach items="${IndividualProduct}" var="product">
 			<h2>
 				<c:out value="${product.name }" />
@@ -55,7 +51,7 @@ body {
 								value="Rs. ${product.price}" readonly="readonly"><br>
 								<c:url var="action" value="/addtoCart/${userid}/${product.id}"></c:url>
 								<form action="${action}" commandName="cart">
-							<input type="submit" class="btn btn-primary" value="Add To Cart" />
+							<input type="submit" class="btn btn-success" value="Add To Cart" />
 							</form>
 						</div>
 					</div>
@@ -63,6 +59,7 @@ body {
 			</div>
 		</c:forEach>
 	</div>
+
 
 </body>
 </html>

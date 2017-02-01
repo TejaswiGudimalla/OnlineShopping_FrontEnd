@@ -20,8 +20,6 @@
  </head>
 <body>
 
-<h4 align="center" style="text-color: lightgreen;"><a href="">Online Shopping</a></h4>
-
 	<fieldset>
 		<div class="container">
 			<div class="row vertical-offset-100">
@@ -29,42 +27,55 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<center>
-								<h1 class="panel-title">Enter the following details to
-									Register</h1>
+								<h1 class="panel-title">Enter your address details here</h1>
 							</center>
 						</div>
 
 						<div class="panel-body">
-							<c:url var="action" value="adduser"></c:url>
-							<form action="${action }" modelAttribute="User">
+							<%-- <c:url var="action" value="adduser"></c:url>
+							<form action="${action }" modelAttribute="User"> --%>
+							<form method="post" action="${flowExecutionUrl}">
+                              <input type="hidden" name="_eventId" value="method"/>
+                              <input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}" />
 								<fieldset>
 									<div class="form-group">
 										<input class="form-control" placeholder="Name" name="name"
 											type="text">
 									</div>
 									<div class="form-group">
-										<input class="form-control" placeholder="Username"
-											name="username" type="text">
+										<input class="form-control" placeholder="D.No/Flat No."
+											name="D.No/Flat No." type="text">
 									</div>
 									<div class="form-group">
-										<input class="form-control" placeholder="Set Password"
-											name="password" type="password">
+										<input class="form-control" placeholder="Street"
+											name="Street" type="text">
 									</div>
 									<div class="form-group">
 										<input class="form-control"
-											placeholder="mail id(ex: name@os.com)" name="mail_id"
+											placeholder="City" name="City"
 											type="text">
 									</div>
 									<div class="form-group">
-										<input class="form-control" placeholder="mobile number"
-											name="mobilenumber" type="text">
+										<input class="form-control" placeholder="state"
+											name="state" type="text">
 									</div>
-									<input class="btn btn-lg btn-success btn-block" type="submit"
-										value="Submit">
+									<div class="form-group">
+										<input class="form-control" placeholder="pincode"
+											name="pincode" type="text">
+									</div>
+									
+									<div class="row">
+                                       <div class="col-xs-6 col-md-6">
+                                       <button class="btn btn-success btn-sm btn-block" type="submit">Continue</button>  
+                                       </div>
+                                       <div class="col-xs-6 col-md-6">
+                                       <button class="btn btn-success btn-sm btn-block" type="submit">Cancel</button>  
+                                       </div>
+                                    </div>
 								</fieldset>
 							</form>
 						</div>
 	</fieldset>
-	${registered}
+	
 </body>
 </html>

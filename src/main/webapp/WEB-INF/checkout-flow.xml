@@ -12,9 +12,14 @@
 
 	<action-state id="payment">
 		<evaluate expression="checkoutHandler.paymentMethod(frontCart)" />
-		<transition on="cashOnDelivery" to="thankyou" />
+		<transition on="cashOnDelivery" to="address" />
 		<transition on="card" to="cardpage" />
 	</action-state>
+	
+	<view-state id="address" view="views/address.jsp" model="frontCart">
+		<transition on="cancel" to="paymentpage"></transition>
+		<transition on="continue" to="thankyou"></transition>
+	</view-state>
 
 	<view-state id="cardpage" view="views/Card.jsp" model="frontCart">
 		<transition on="cancel" to="paymentpage"></transition>
@@ -23,9 +28,14 @@
 
 	<action-state id="cardpayment">
 		<evaluate expression="checkoutHandler.cardPayment(frontCart)" />
-		<transition on="true" to="thankyou" />
+		<transition on="true" to="address1" />
 		<transition on="false" to="paymentpage" />
 	</action-state>
+	
+	<view-state id="address1" view="views/address.jsp" model="frontCart">
+		<transition on="cancel" to="paymentpage"></transition>
+		<transition on="continue" to="thankyou"></transition>
+	</view-state>
 	
 	<view-state id="thankyou" view="views/thankyou.jsp"></view-state>
 

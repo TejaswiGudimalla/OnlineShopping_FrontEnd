@@ -2,6 +2,8 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
       <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+      <%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,28 +17,29 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <title>Admin Page</title>
-<body >
 </head>
 <body>
 <nav class="navbar navbar-inverse" style="background-color: lightgreen" role="navbar-fixed-top">
 <div class="container-fluid">
   <ul class="navbar-nav">
-    <li><a class="navbar-brand" href="Home">Logo with Name</a>
+    <li><a class="navbar-brand" href="Admin">Online Shopping</a>
     <li><a class="navbar-brand" href="Supplier">Supplier</a></li>
     <li><a class="navbar-brand" href="Product">Product</a></li>
     <li><a class="navbar-brand" href="Category">Category</a></li>
   </ul>
-  <ul class="nav navbar-nav navbar-right" style="margin-bottom:-2px;"> 
-    <li><a href="Home">CONTACT US</a></li>  
+  <ul class="nav navbar-nav navbar-right" style="margin-bottom:-2px;">  
+    <li><a href="Admin" style="text-transform: capitalize;">welcome
+							<sec:authentication property="principal.username" />
+					</a></li>
     <li><a href="perform_logout"><span class="glyphicon glyphicon-log-out"></span>LOGOUT</a></li>    
   </ul>
 </nav>
 
 <!-- ${msg}
 ${msg1 }!> -->
-<h1>Welcome Admin </h1>
+<h1></h1>
 
-<%-- <c:if test="${showSupplierpage}">
+<%-- <<c:if test="${showSupplierpage}">
     <jsp:include page="Supplier.jsp"></jsp:include></c:if> --%>
 
 <c:choose>
@@ -53,11 +56,6 @@ ${msg1 }!> -->
 <c:choose>
 <c:when test="${showCategory}">
 <c:import url="/WEB-INF/views/Category.jsp"></c:import>
-</c:when>
-</c:choose>
-<c:choose>
-<c:when test="${UserClickedContactUs}">
-<c:import url="/WEB-INF/views/Login.jsp"></c:import>
 </c:when>
 </c:choose>
 <c:choose>
