@@ -33,7 +33,7 @@
          Product Id : <c:out value="${product.id}" /><br>
          Product Name : <c:out value="${product.name }"/><br>
          Price:<c:out value="${product.price}"></c:out>
-   <c:url var="action" value="addtocart/${product.id}"></c:url>
+   <c:url var="action" value="/addtoCart/${userid}/${product.id}"></c:url>
    <form action="${action}" commandName="cart">
    <input type="submit" class="btn btn-primary" value="Add To Cart" />
    </form>

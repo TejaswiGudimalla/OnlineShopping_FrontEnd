@@ -83,7 +83,7 @@
 		</div>
 	</div>
 	</nav>
-	
+	<sec:authorize access="isAuthenticated()">
 		<c:forEach items="${ProductList}" var="product">
 		<!--  <div class="row"> -->
      <div class="col-xs-3" class="thumbnail">
@@ -93,14 +93,14 @@
   <div class="desc">
           Name : <c:out value="${product.name }"/><br>
           Price : <c:out value="${product.price }"/>
-   <c:url var="action" value="addtocart/${product.id}"></c:url>
+   <c:url var="action" value="/addtoCart/${userid}/${product.id}"></c:url>
    <form action="${action}" commandName="cart">
    <input type="submit" class="btn btn-primary" value="Add To Cart" />
    </form>
 							</div>
 							</div>	
 							</c:forEach>
-							
+							</sec:authorize>
 	<div class="ng-view"></div>
 	<script>
 		var app = angular.module("myApp", [ "ngRoute" ]);

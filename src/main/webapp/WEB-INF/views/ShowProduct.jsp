@@ -53,6 +53,7 @@ body {
 						<div class="form-group">
 							<input type="text" class="form-control"
 								value="Rs. ${product.price}" readonly="readonly"><br>
+								<c:url var="action" value="/addtoCart/${userid}/${product.id}"></c:url>
 								<form action="${action}" commandName="cart">
 							<input type="submit" class="btn btn-primary" value="Add To Cart" />
 							</form>

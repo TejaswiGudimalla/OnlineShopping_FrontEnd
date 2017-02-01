@@ -62,7 +62,7 @@ public class HomeController {
 
 	@RequestMapping("/Login")
 	public ModelAndView showLoginpage() {
-		ModelAndView mv = new ModelAndView("Login");
+		ModelAndView mv = new ModelAndView("Home");
 		mv.addObject("user", user);
 		mv.addObject("UserClickedLogin", "true");
 		return mv;
@@ -70,7 +70,7 @@ public class HomeController {
 
 	@RequestMapping("/SignUp")
 	public ModelAndView showRegisterpage() {
-		ModelAndView mv = new ModelAndView("SignUp");
+		ModelAndView mv = new ModelAndView("Home");
 		mv.addObject("user", user);
 		mv.addObject("showsignup", "true");
 		return mv;
@@ -80,7 +80,7 @@ public class HomeController {
 	public String ShowProductPage(@PathVariable("id") int id, RedirectAttributes attributes, Model m) {
 		m.addAttribute("UserClickedshowproduct", "true");
 		m.addAttribute("IndividualProduct", productDAO.getproduct(id));
-		return "ShowProduct";
+		return "Home";
 	}
 
 	@RequestMapping(value = "navproducts/{id}")

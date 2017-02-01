@@ -33,10 +33,6 @@ body {
 <body style="background-color: #CCCCCC">
 
 
-	<div class="text-center">
-		
-	</div>
-
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<sec:authorize access="!isAuthenticated()">
@@ -49,41 +45,45 @@ body {
 					<li><a href="<c:url value="/perform_logout" />"><p>
 								LOGOUT<span class="glyphicon glyphicon-log-out"></span>
 							</p></a></li>
-					<li><a href="">WELCOME<sec:authentication
-								property="principal.username" /></a></li>
+					<li><a href="" style="text-transform: capitalize;">welcome
+							<sec:authentication property="principal.username" />
+					</a></li>
 				</ul>
 			</sec:authorize>
 
 			</ul>
 		</div>
 	</nav>
+
 	<div id="cart">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-2"></div>
-				<div class="col-xs-8">
-					<div class="panel panel-primary ">
+				<div class="col-xs-1"></div>
+				<div class="col-xs-10">
+					<div class="panel panel-success ">
 						<div class="panel-heading">
 							<div class="panel-title">
 								<div class="row">
 									<div class="col-xs-6">
-										<h5 style="color: white">
-											<span class="glyphicon glyphicon-shopping-cart">Cart</span>
-										</h5>
+										<li><a href=""
+											style="text-transform: capitalize; font-weght: bold;"><sec:authentication
+													property="principal.username" />'s cart ${emptycart}</a></li>
+
 									</div>
-									<div class="col-xs-3"></div>
+									<div class="col-xs-1"></div>
 								</div>
 							</div>
 						</div>
 						<div class="panel-body">
+							<div class="row"
+								style="text-transform: capitalize; font-weight: bold; text-align: center;">
 
-							<div class="row">
 								<div class="col-xs-5">
 									<label class="form-control input-sm">Product Details</label>
 								</div>
 
-								<div class="col-xs-2 text-right">
-									<label class="form-control input-sm"> Total Price</label>
+								<div class="col-xs-2">
+									<label class="form-control input-sm">Price</label>
 								</div>
 
 								<div class="col-xs-4">
@@ -94,13 +94,13 @@ body {
 										<label class="form-control input-sm">Update</label>
 									</div>
 								</div>
+
 								<div class="col-xs-1">
-									<a href="#" class="form-control input-sm"><span
-										class="glyphicon glyphicon-trash"> </span></a>
+									<label class="form-control input-sm">Delete</label>
 								</div>
 							</div>
 							<hr>
-								<c:if test="${!empty CartList}">
+							<c:if test="${!empty CartList}">
 								<c:forEach items="${CartList}" var="cart">
 									<div class="row">
 										<div class="col-xs-5">
@@ -113,31 +113,31 @@ body {
 											<div class="col-xs-6" style="padding-top: 22px">
 												<label class="form-control input-sm">${cart.productname}</label>
 											</div>
-										</div>
-										<div class="col-xs-2 text-right" style="padding-top: 22px">
-											<label class="form-control input-sm">${cart.price}</label>
-										</div>
+											</div>
+											<div class="col-xs-2 text-right" style="padding-top: 22px">
+												<label class="form-control input-sm">${cart.price}</label>
+											</div>
 
-										<div class="col-xs-4" style="padding-top: 22px">
-											<form action="editorder/${cart.id}">
-												<div class="col-xs-6">
-													<input type="text" class="form-control input-sm"
-														value="${cart.quantity}" name="quantity">
-												</div>
-												<div class="col-xs-6">
-													<button type="submit"
-														class="btn btn-default btn-sm btn-block">Update
-														cart</button>
-												</div>
+											<div class="col-xs-4" style="padding-top: 22px">
+												<form action="editorder/${cart.id}">
+													<div class="col-xs-6">
+														<input type="text" class="form-control input-sm"
+															value="${cart.quantity}" name="quantity">
+													</div>
+													<div class="col-xs-6">
+														<button type="submit"
+															class="btn btn-default btn-sm btn-block">Update</button>
+													</div>
 
-											</form>
+												</form>
+											</div>
+
+											<div class="col-xs-1" style="padding-top: 22px">
+												<a href="delete/${cart.id}" class="form-control input-sm"><span
+													class="glyphicon glyphicon-trash"> </span></a>
+											</div>
 										</div>
-										<div class="col-xs-1" style="padding-top: 22px">
-											<a href="delete/${cart.id}" class="form-control input-sm"><span
-												class="glyphicon glyphicon-trash"> </span></a>
-										</div>
-									</div>
-									<hr>
+										<hr>
 								</c:forEach>
 							</c:if>
 						</div>
@@ -151,14 +151,14 @@ body {
 									<div class="col-xs-6">
 										<h4 class="text-right">Total : Rs ${cartprice}</h4>
 									</div>
-									
+
 									<%-- <form action="placeorder"> --%>
-										<div class="col-xs-3">
+									<div class="col-xs-3">
 										<form action="placeorder">
 											<a href=checkoutFlow class="btn btn-success btn-block">
 												Checkout</a>
-												</form>
-										</div>
+										</form>
+									</div>
 
 									<%-- </form> --%>
 								</c:if>
@@ -168,9 +168,8 @@ body {
 				</div>
 			</div>
 		</div>
-	</div>
-	<!--  -->
-    <c:choose>
+		<!--  -->
+		<c:choose>
 			<c:when test="${IfPaymentClicked}">
 				<c:import url="/WEB-INF/views/CartProducts.jsp"></c:import>
 			</c:when>
