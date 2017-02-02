@@ -34,9 +34,7 @@
 						<div class="panel-body">
 							<%-- <c:url var="action" value="adduser"></c:url>
 							<form action="${action }" modelAttribute="User"> --%>
-							<form method="post" action="${flowExecutionUrl}">
-                              <input type="hidden" name="_eventId" value="method"/>
-                              <input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}" />
+							
 								<fieldset>
 									<div class="form-group">
 										<input class="form-control" placeholder="Name" name="name"
@@ -66,14 +64,21 @@
 									
 									<div class="row">
                                        <div class="col-xs-6 col-md-6">
+                                       <form method="post" action="${flowExecutionUrl}">
+                              <input type="hidden" name="_eventId" value="continue"/>
+                              <input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}" />
                                        <button class="btn btn-success btn-sm btn-block" type="submit">Continue</button>  
+                                       </form>
                                        </div>
                                        <div class="col-xs-6 col-md-6">
+                                       <form method="post" action="${flowExecutionUrl}">
+                              <input type="hidden" name="_eventId" value="cancel"/>
+                              <input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}" />
                                        <button class="btn btn-success btn-sm btn-block" type="submit">Cancel</button>  
                                        </div>
                                     </div>
 								</fieldset>
-							</form>
+							
 						</div>
 	</fieldset>
 	

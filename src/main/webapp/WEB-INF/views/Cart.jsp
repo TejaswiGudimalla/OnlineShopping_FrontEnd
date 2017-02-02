@@ -79,6 +79,8 @@ border-radius: 0;
 
 		<div class="navbar-nav navbar-right">
 			<sec:authorize access="isAuthenticated()">
+			    <li><a href="" style="text-transform: capitalize; font-weght: bold;">welcome,
+			    <sec:authentication property="principal.username" /></a></li>
 				<li><a class="navbar-brand" href="Cart"><span
 						class="glyphicon glyphicon-shopping-cart" class="btn btn-info"></span>Cart</a></li>
 				<li><a class="navbar-brand"

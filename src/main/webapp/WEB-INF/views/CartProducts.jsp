@@ -16,20 +16,13 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- <style>
-{
-   
-    background-color: grey;
-}
-</style>
 </head>
-<body > 
 
-<h4 align="center" style="text-color: lightgreen;"><a href="Home">Online Shopping</a></h4>
+<body>
 
-<c:forEach items="${navproducts}" var="product">
+<c:forEach items="${navproducts}" var="product" >
 		<!--  <div class="row"> -->
-     <div class="col-xs-3" class="thumbnail">
+     <div class="col-xs-3" class="thumbnail" style="padding-top: 25px">
  	 			 
 	<a href="ShowProduct/${product.id}" > <img height="200px" width="200px" alt="${product.id }"
 	src="<c:url value="/resources/images/${product.id }.jpg"></c:url>"></a>

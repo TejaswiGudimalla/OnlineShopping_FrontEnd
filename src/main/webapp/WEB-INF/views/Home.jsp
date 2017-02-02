@@ -27,7 +27,7 @@
 
 #srch-term {
 	position: relative;
-	width: 650px;
+	width: 500px;
 	height: 35px;
 }
 
@@ -41,10 +41,10 @@ margin-bottom: 0;
 border-radius: 0;
 }
 
-.carousel-inner img {
-      width: 100%; /* Set width to 100% */
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
       margin: auto;
-      height:100px;
   }
   
   @media (max-width: 600px) {
@@ -91,7 +91,7 @@ border-radius: 0;
 		</form>
 
 		<div class="navbar-nav navbar-right">
-			<sec:authorize access="isAuthenticated()">
+		<sec:authorize access="isAuthenticated()">			
 				<li><a class="navbar-brand" href="Cart"><span
 						class="glyphicon glyphicon-shopping-cart" class="btn btn-info"></span>Cart</a></li>
 				<li><a class="navbar-brand"
@@ -130,6 +130,7 @@ border-radius: 0;
 		</c:forEach>
 	</sec:authorize>
 	
+	<sec:authorize access="!isAuthenticated()">
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -142,19 +143,19 @@ border-radius: 0;
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="F:\workspace\OnlineShopping_FrontEnd\src\main\webapp\resources\images\sale.jpg" alt="sale" width="600" height="200">
+      <img src="F:\workspace\OnlineShopping_FrontEnd\src\main\webapp\resources\images\sale.jpg" alt="sale" >
     </div>
 
     <div class="item">
-      <img src="F:\workspace\OnlineShopping_FrontEnd\src\main\webapp\resources\images\bookshelf.jpg" alt="bookshelf" width="600" height="200">
+      <img src="F:\workspace\OnlineShopping_FrontEnd\src\main\webapp\resources\images\bookshelf.jpg" alt="bookshelf" >
     </div>
 
     <div class="item">
-      <img src="F:\workspace\OnlineShopping_FrontEnd\src\main\webapp\resources\images\phones.jpg" alt="phones" width="600" height="200">
+      <img src="F:\workspace\OnlineShopping_FrontEnd\src\main\webapp\resources\images\phones.jpg" alt="phones" >
     </div>
 
     <div class="item">
-      <img src="F:\workspace\OnlineShopping_FrontEnd\src\main\webapp\resources\images\shoes.jpg" alt="shoes" width="600" height="200">
+      <img src="F:\workspace\OnlineShopping_FrontEnd\src\main\webapp\resources\images\shoes.jpg" alt="shoes" >
     </div>
   </div>
 
@@ -168,6 +169,7 @@ border-radius: 0;
     <span class="sr-only">Next</span>
   </a>
 </div>
+</sec:authorize>
 	
 	<div class="ng-view"></div>
 	<script>
@@ -183,15 +185,15 @@ border-radius: 0;
 		});
 	</script>
 
-	<c:if test="${UserClickedLogin}">
-		<jsp:include page="Login.jsp"></jsp:include></c:if>
-
-	<c:choose>
+    <c:if test="${UserClickedLogin}">
+    <jsp:include page="Login.jsp"></jsp:include></c:if>   
+    	
+	<%-- <c:choose>
 		<c:when test="${UserClickedLogin}">
 			<c:import url="/WEB-INF/views/Login.jsp"></c:import>
 		</c:when>
 	</c:choose>
-
+ --%>
 	<c:choose>
 		<c:when test="${showsignup}">
 			<c:import url="/WEB-INF/views/SignUp.jsp"></c:import>

@@ -18,11 +18,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
+
 <body>
+
 
 <h4 align="center" style="text-color: lightgreen;"><a href="">Online Shopping</a></h4>
 
-<%-- <jsp:include page="header.jsp" /> --%>
 
 	<div class="container" style="padding-top: 25px">
 		<c:forEach items="${IndividualProduct}" var="product">
